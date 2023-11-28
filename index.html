@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include the p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script defer src="app.js"></script>
+    <!-- Include the ml5.js library -->
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <style>
+        /*Set styles for HTML elements */
+        h1, h2 {text-align: center;}
+        .imageInput {width: 100%; text-align: center; margin-bottom: 10px;}
+        .imageClassified {width: 100%; text-align: center; text-transform: uppercase;}
+        .uploadedImage {width: 50%; height: auto; margin-left: 25%;}
+    </style>
+</head>
+
+<body>
+<h1>Is it a crochethook or earbuds?</h1>
+<h2>Click "Choose File" to upload an image of a crochethook or earbuds</h2>
+<div class="imageInput">
+    <button id="assignment">Assignment</button>
+</div>
+<div class="imageClassified" id="imageClassified"></div>
+
+<div class="imageInput">
+    <input type="file"
+           oninput="uploadedImage.src=window.URL.createObjectURL(this.files[0]); startImageScan()">
+</div>
+
+<!-- Container for the uploaded image -->
+<img class="uploadedImage" id="uploadedImage" />
